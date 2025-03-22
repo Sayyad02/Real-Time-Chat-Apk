@@ -1,0 +1,316 @@
+/* --- Global Styles --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("images/ai.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+h1 {
+    font-size: 1.6em;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.container {
+    width: 85%;
+    max-width: 700px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* --- Chat Container --- */
+.chat-container {
+    width: 100%; /* Use full available width */
+    max-width: 600px; /* Limit maximum width for larger screens */
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    height: 80vh; /* Set a fixed height for the entire chat container */
+    overflow: hidden; /* Hide any overflow from the main container*/
+
+}
+.chat-messages {
+    height: 300px; /* Or whatever height you want */
+    overflow-y: auto; /* This is the key!  Enables vertical scrollbar */
+    /* Other styling as needed */
+    border: 1px solid #ccc; /* Example styling */
+    padding: 10px;
+}
+.chat-header {
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px 20px 0 0; /* Round only the top corners */
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* --- Message Container --- */
+.messages-container {
+    flex-grow: 1; /* Take up remaining space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 20px;
+     /* Custom Scrollbar */
+    scrollbar-width: thin;  /* Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.4) rgba(0, 0, 0, 0.2); /* Firefox */
+}
+/* WebKit (Chrome, Safari) Scrollbar Styling */
+.messages-container::-webkit-scrollbar {
+    width: 8px;  /* Width of the scrollbar */
+}
+
+.messages-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);  /* Track color */
+     border-radius: 10px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);  /* Thumb color */
+    border-radius: 10px;  /* Rounded corners for the thumb */
+    border: 2px solid rgba(0, 0, 0, 0.2); /* Transparent border to prevent "floating" thumb */
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.6); /* Lighter on hover */
+}
+
+
+/* --- Individual Message --- */
+.message {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+     background-color: #4CAF50; /* Green background */
+    border-radius: 20px;
+    color:white;
+    max-width: 70%; /* Limit message width */
+    word-wrap: break-word; /* Wrap long words */
+
+}
+
+.sender {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block; /* Make the sender appear on a separate line */
+    color:white;
+}
+
+
+
+/* --- Input Area --- */
+.user-input {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  padding: 10px 15px; /* Slightly less vertical padding */
+  background-color: rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0 0 15px 15px; /* Rounded corners for the entire input area */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+#message-input {
+  flex-grow: 1;
+  padding: 10px 20px; /* Slightly adjusted padding */
+  border: none;
+  border-radius: 30px; /* More rounded corners */
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly brighter background */
+  color: #fff;
+  resize: vertical;
+  margin-right: 10px;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease; /* Animate background-color */
+  font-size: 1rem; /* Slightly larger font size */
+  font-family: 'Open Sans', sans-serif; /* Use a more modern font, fall back to sans-serif*/
+}
+
+#message-input::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+  font-style: italic;
+}
+
+#message-input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(81, 203, 238, 0.8); /* Brighter and larger focus glow */
+  background-color: rgba(255, 255, 255, 0.3); /* Lighter background on focus */
+}
+
+#send-button {
+  padding: 0;
+  width: 48px; /* Slightly larger button */
+  height: 48px;
+  border-radius: 50%;
+  background-color: #4CAF50; /* Keep the green, it's good */
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem; /* Larger icon/font */
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Add box-shadow transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow to the button */
+}
+
+#send-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+  transform: scale(1.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+#send-button:active {
+  transform: scale(0.95); /* Slightly shrink on click */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Smaller shadow on click */
+}
+
+
+.timestamp {
+  font-size: 0.7rem; /* Slightly larger timestamp */
+  color: rgba(255, 255, 255, 0.6); /* Light grey, consistent with placeholder */
+  margin-right: 8px; /* Slightly more margin */
+  align-self: flex-end; /* Keep at the bottom */
+  font-family: 'Roboto', sans-serif;  /* Use a clean font, fall back to sans-serif */
+    display: block; /* Timestamp on its own line */
+    margin-top: 4px;
+}
+
+.message-content {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 0.3rem; /* Slightly more margin */
+  font-family: 'Open Sans', sans-serif; /* Use the same modern font */
+  font-size: 1rem;
+    line-height: 1.4; /*Improved Readability*/
+
+}
+
+
+
+/*Animation for messages*/
+.message-sender-me:hover {
+	transform: translateX(3px);
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* Add subtle shadow */
+}
+.message-sender-other:hover {
+	transform: translateX(-3px);
+	box-shadow: -2px 2px 5px rgba(0,0,0,0.3); /* Add subtle shadow */
+
+}
+/* Add styling for the receiver name */
+.receiver-name {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.receiver-name h2 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+/* Style for the delete button */
+.delete-button {
+    background: none;
+    border: none;
+    color: #aaa; /* Light gray */
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-left: 5px;
+    transition: color 0.2s;
+	position: absolute;
+    top: 5px;
+	right: 5px;
+}
+
+.delete-button:hover {
+    color: #ff5252; /* Red on hover */
+}
+/* Styles for the recent chats list */
+.recent-chats {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    overflow-y: auto; /* Add scrollbar if needed */
+    max-height: 150px; /* Or whatever height you want */
+}
+
+.recent-chat-item {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s;
+}
+
+.recent-chat-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.recent-chat-item:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+#username-form {
+    display: flex;
+    margin-bottom: 10px; /* Spacing between the form and chat window*/
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+#username-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    margin-right: 10px;
+}
+
+#set-username-button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#set-username-button:hover {
+    background-color: #388e3c;
+}
+
+header h1 { /*Adjust header*/
+    font-size: 1.6em;
+    margin: 0;
+    letter-spacing: 0.5px;
+
+}

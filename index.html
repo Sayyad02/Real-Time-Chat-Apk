@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>Real-Time Chat Application</h1>  </header>
+
+    <div class="container">
+        <div id="username-form">
+            <input type="text" id="username-input" placeholder="Enter your name">
+            <button id="set-username-button">Set Name</button>
+        </div>
+        <div class="chat-window">
+            <div class="chat-area">
+                <div class="receiver-name">
+                    <h2>Chat with <span id="current-user-name"></span></h2>
+                </div>
+                <div class="recent-chats"></div>
+                <div class="chat-messages"></div>  </div>
+            <div class="user-input">
+                <textarea id="message-input" placeholder="Type your message..."></textarea>
+                <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
